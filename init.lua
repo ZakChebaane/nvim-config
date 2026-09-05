@@ -18,6 +18,12 @@ do
   -- NOTE: You can change these options as you wish!
   --  For more options, you can see `:help option-list`
 
+  -- Indentation settings (2 spaces, convert tabs to spaces)
+  vim.opt.tabstop = 2 -- Number of spaces a <Tab> counts for
+  vim.opt.shiftwidth = 2 -- Number of spaces used for autoindent / >> / <<
+  vim.opt.softtabstop = 2 -- Number of spaces a <Tab> feels like while editing
+  vim.opt.expandtab = true -- Convert all tabs to spaces automatically
+
   -- Make line numbers default
   vim.o.number = true
   -- You can also add relative line numbers, to help with jumping.
@@ -122,6 +128,16 @@ do
   }
 
   vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+  -- Opens the explorer with <leader>e
+  vim.keymap.set('n', '<leader>e', '<cmd>:Explore<CR>')
+
+  -- Switches between last 2 buffers
+  vim.keymap.set('n', '<leader>a', '<C-6>')
+
+  -- quit saves file
+  vim.keymap.set('n', '<C-q>', '<cmd>:wq<CR>')
+  vim.keymap.set('n', '<C-s>', '<cmd>:w<CR>')
 
   -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
   -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
